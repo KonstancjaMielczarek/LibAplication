@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title>Logowanie</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/bootstrap/css/bootstrap.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/fonts/iconic/css/material-design-iconic-font.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/animate/animate.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/css-hamburgers/hamburgers.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/animsition/css/animsition.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/select2/select2.min.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/vendor/daterangepicker/daterangepicker.css"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/css/util.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/jsf_06_web/resources/css/main.css"/>
+    <!--===============================================================================================-->
+</h:head>
+
+<body>
+<c:set var="role" value="#{loginBB.takeRole()}"/>
+	<c:choose>
+		<c:when test="${role != null}">
+	    <div class="limiter">
+	        <div class="container-login100" style="background-image: url('http://localhost:8080/jsf_06_web/resources/images/bg-10.jpg');">
+	            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+	                <h:form class="login100-form validate-form">
+	                    <span class="login100-form-title p-b-49">
+	                        Jesteś już zalogowany
+	                    </span>
+	
+	              	<div class="container-login100-form-btn">
+	                	<div class="wrap-login100-form-btn">
+	                		<a href="http://localhost:8080/jsf_06_web/index.xhtml">Przejdz na stronę główną</a>
+	                    </div>
+	                </div>
+	                </h:form>
+	            </div>
+	        </div>
+	    </div>
+		</c:when>
+		<c:otherwise>
+			<div class="limiter">
+		        <div class="container-login100" style="background-image: url('http://localhost:8080/jsf_06_web/resources/images/bg-10.jpg');">
+		            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+		                <h:form class="login100-form validate-form" >
+		                    <span class="login100-form-title p-b-49">
+		                        Login
+		                    </span>
+		
+		                    <div class="wrap-input100 validate-input m-b-23" data-validate="Login jest wymagany">
+		                        <span class="label-input100">Login</span>
+		                        <h:inputText class="input100" id="login" value="#{loginBB.login}" required="true"	requiredMessage="Podaj login"/>
+		                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+		                    </div>
+		
+		                    <div class="wrap-input100 validate-input" data-validate="Hasło jest wymagane">
+		                        <span class="label-input100">Hasło</span>
+		                        <h:inputSecret  class="input100"  id="pass" value="#{loginBB.pass}" required="true"	requiredMessage="Podaj hasło"/>
+		                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+		                    </div>
+		
+
+		
+		                    <div class="container-login100-form-btn">
+		                        <div class="wrap-login100-form-btn">
+		                        <h:commandButton  style=" color: black; background-color: rgb(73, 156, 232);" value="Zaloguj" type="submit" formmethod="post" class="login100-form-btn" action="#{loginBB.doLogin()}" />
+		                        </div>
+		                    </div>
+		                    <div class="flex-col-c p-t-155">
+		                        <span class="txt1 p-b-17">
+		                            Albo zarejestruj się
+		                        </span>
+		                        <a href="http://localhost:8080/jsf_06_web/pages/sign.xhtml" class="txt2">
+		                            Zarejestruj
+		                        </a>
+		                    </div>
+		                </h:form>
+		            </div>
+		        </div>
+		    </div>
+			
+		</c:otherwise>
+	</c:choose>
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/bootstrap/js/popper.js"></script>
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/daterangepicker/moment.min.js"></script>
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="http://localhost:8080/jsf_06_web/resources/js/main.js"></script>
+
+</body>
+
+</html>
