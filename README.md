@@ -1,5 +1,5 @@
 # Web Application for Online Library Management
----
+
 #### Created web application allows users:
   - Login or sign up.  
   - Browse the list of books, search by title.
